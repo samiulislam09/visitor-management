@@ -1,16 +1,12 @@
-import { getDashboardStats, getVisitorsOverTime, getPurposeDistribution, getRecentVisitors } from "@/lib/services/dashboard";
+import { getDashboardStats, getRecentVisitors } from "@/lib/services/dashboard";
 import { StatsCards } from "@/components/dashboard/stats-cards";
-import { VisitsChart } from "@/components/dashboard/visits-chart";
-import { PurposeChart } from "@/components/dashboard/purpose-chart";
 import { RecentVisitors } from "@/components/dashboard/recent-visitors";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [stats, trends, purposes, recent] = await Promise.all([
+  const [stats, recent] = await Promise.all([
     getDashboardStats(),
-    getVisitorsOverTime(),
-    getPurposeDistribution(30),
     getRecentVisitors(8),
   ]);
 
@@ -24,11 +20,6 @@ export default async function DashboardPage() {
       </div>
 
       <StatsCards stats={stats} />
-
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <VisitsChart trends={trends} />
-        <PurposeChart data={purposes} />
-      </div>
 
       <RecentVisitors rows={recent} />
     </div>

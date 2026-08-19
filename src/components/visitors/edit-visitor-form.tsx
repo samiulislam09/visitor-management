@@ -221,18 +221,6 @@ export function EditVisitorForm({
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="photoUrl"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Photo</FormLabel>
-                    <FormControl>
-                      <PhotoUpload value={field.value} onChange={field.onChange} />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField
                   control={form.control}

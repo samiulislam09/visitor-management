@@ -250,23 +250,6 @@ export function RegisterVisitorForm({ hosts }: { hosts: HostOptionData[] }) {
                   </FormItem>
                 )}
               />
-
-              <FormField
-                control={form.control}
-                name="photoUrl"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Photo</FormLabel>
-                    <FormControl>
-                      <PhotoUpload value={field.value} onChange={field.onChange} />
-                    </FormControl>
-                    <FormDescription>
-                      Used on the printed visitor pass.
-                    </FormDescription>
-                  </FormItem>
-                )}
-              />
-
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField
                   control={form.control}

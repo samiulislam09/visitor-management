@@ -51,12 +51,6 @@ export const NAV_GROUPS: NavGroup[] = [
         permission: "visitor:create",
         exact: true,
       },
-      {
-        href: "/visitors?status=CHECKED_IN",
-        label: "Currently Inside",
-        icon: DoorOpen,
-        permission: "visitor:read",
-      },
     ],
   },
   {
@@ -67,20 +61,6 @@ export const NAV_GROUPS: NavGroup[] = [
         label: "Reports",
         icon: FileBarChart,
         permission: "report:read",
-        exact: true,
-      },
-      {
-        href: "/hosts",
-        label: "Hosts / Employees",
-        icon: Building2,
-        permission: "host:read",
-        exact: true,
-      },
-      {
-        href: "/settings",
-        label: "Settings",
-        icon: Settings,
-        permission: "settings:manage",
         exact: true,
       },
     ],
