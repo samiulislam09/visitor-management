@@ -3,10 +3,7 @@ import {
   LayoutDashboard,
   Users,
   UserPlus,
-  DoorOpen,
   FileBarChart,
-  Building2,
-  Settings,
 } from "lucide-react";
 import type { Permission } from "@/lib/permissions";
 

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useForm, type Resolver } from "react-hook-form";
+import { useForm, useWatch, type Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import {
@@ -35,7 +35,6 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { PhotoUpload } from "./photo-upload";
 import { Spinner } from "@/components/spinner";
 import { formatDateTime, formatTime } from "@/lib/utils";
 import { ID_TYPES, VISIT_PURPOSES } from "@/lib/constants";
@@ -110,10 +109,10 @@ export function RegisterVisitorForm({ hosts }: { hosts: HostOptionData[] }) {
     },
   });
 
-  const watchPurpose = form.watch("purpose");
-  const watchIdType = form.watch("idType");
-  const watchCheckInStatus = form.watch("checkInStatus");
-  const watchHostId = form.watch("hostId");
+  const watchPurpose = useWatch({ control: form.control, name: "purpose" });
+  const watchIdType = useWatch({ control: form.control, name: "idType" });
+  const watchCheckInStatus = useWatch({ control: form.control, name: "checkInStatus" });
+  const watchHostId = useWatch({ control: form.control, name: "hostId" });
 
   async function onSubmit(values: FormValues) {
     setSubmitting(true);

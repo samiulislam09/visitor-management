@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { useForm, type Resolver } from "react-hook-form";
+import { useForm, useWatch, type Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Save } from "lucide-react";
@@ -27,7 +27,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { PhotoUpload } from "./photo-upload";
 import { Spinner } from "@/components/spinner";
 import { visitorUpdateSchema } from "@/lib/validations/visitor";
 import { ID_TYPES, VISIT_PURPOSES } from "@/lib/constants";
@@ -95,8 +94,8 @@ export function EditVisitorForm({
     },
   });
 
-  const watchPurpose = form.watch("purpose");
-  const watchIdType = form.watch("idType");
+  const watchPurpose = useWatch({ control: form.control, name: "purpose" });
+  const watchIdType = useWatch({ control: form.control, name: "idType" });
 
   async function onSubmit(values: Record<string, unknown>) {
     setSubmitting(true);
