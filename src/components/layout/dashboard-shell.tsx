@@ -26,8 +26,6 @@ const ROUTE_TITLES: Record<string, string> = {
   "/visitors": "All Visitors",
   "/visitors/register": "Register Visitor",
   "/reports": "Reports",
-  "/hosts": "Hosts / Employees",
-  "/settings": "Settings",
 };
 
 export function DashboardShell({
